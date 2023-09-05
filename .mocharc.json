@@ -1,0 +1,11 @@
+{
+  "reporter": "dist/reporters/reporter.js",
+  "reporterOptions": {
+    "jiraProjectId": "M2X",
+    "ticketPrefix": "@TICKET-",
+    "stepPrefix": "@STEP-",
+    "reportPath": "xray.json",
+    "screenshotDir": "cypress/screenshots",
+    "manualId": "@MANUAL"
+  }
+}
