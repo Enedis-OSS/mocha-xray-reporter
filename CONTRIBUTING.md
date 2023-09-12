@@ -16,15 +16,25 @@ It's expected that some tests fail. The goal of these tests are to generate some
 
 ## How to edit the tests
 
-To add/edit some tests, you'll have to edit the expected_xray.json file as well to match the expected behaviour. 
-Some fields are not expected with their exact values for the following reasons :
+To add/edit some tests, you'll have to edit the expected_xray.json file as well to match the expected behaviour. Some fields are not
+expected with their exact values for the following reasons :
 
-- Dates fields (like "start" and "finish") : The are fields with "{{DATE}}" in the expected file simply because we can't anticipate the real date in the final file
-- "data" fields should contain "{{DATA}}" : base64 encoding are not the same between Windows and Linux, so it's complicated to make them both work on the same expected file
-- "actualResult" should be trimmed off before "Duration:X" : Duration will not be the same each job. Plus, Linux env seems to have access to test code when it's skipped. Windows does not.
+- Dates fields (like "start" and "finish") : The are fields with "{{DATE}}" in the expected file simply because we can't anticipate the real
+  date in the final file
+- "data" fields should contain "{{DATA}}" : base64 encoding are not the same between Windows and Linux, so it's complicated to make them
+  both work on the same expected file
+- "actualResult" should be trimmed off before "Duration:X" : Duration will not be the same each job. Plus, Linux env seems to have access to
+  test code when it's skipped. Windows does not.
 
 ## Format
 
 We lean on prettier to format our code :
+
 - https://www.jetbrains.com/help/idea/prettier.html On Visual Code studio
 - https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code-fr
+
+# Workflow
+
+The development workflow is set on rebase-merge method. A branch must be rebased on the last version of main branch to be merged.
+
+We use https://github.com/phips28/gh-action-bump-version to automatically version, package and publish each commit made on the main branch
