@@ -4,31 +4,31 @@ You just have to install it via npm or yarn (or your prefered package manager)
 
     npm install mocha-xray-reporter
 
-or    
-    
+or
+
     yarn add mocha-xray-reporter
 
 # Configuration with Mocha
 
 If you launch your tests directly with Mocha, you can add these options to make the reporter work
 
-    mocha [folder of your tests]/*.spec.ts --reporter=mocha-xray-reporter/reporters/reporter.js --reporter-options jiraProjectId=M2X,reportPath=xray.json,ticketPrefix=@TICKET-,stepPrefix=@STEP-,screenshotDir=screenshots,manualId=@MANUAL
+    mocha [folder of your tests]/*.spec.ts --reporter=@enedis-oss/mocha-xray-reporter/reporters/reporter.js --reporter-options jiraProjectId=M2X,reportPath=xray.json,ticketPrefix=@TICKET-,stepPrefix=@STEP-,screenshotDir=screenshots,manualId=@MANUAL
 
 With the following variables :
 
 - **jiraProjectId**: How you identify your project in Jira. Mandatory.
 - **ticketPrefix**: The prefix used to identify the ticket number. Default to "@TICKET-".
 - **stepPrefix**:The prefix used to identify the step number. Default to "@STEP-".
-- **manualId**: The keyword to use if you want your final status to be "IN PROGRESS" instead of "PASS" (see [Behaviour part](### Behaviour)). Default to "@MANUAL".
+- **manualId**: The keyword to use if you want your final status to be "IN PROGRESS" instead of "PASS" (see [Behaviour part](###
+  Behaviour)). Default to "@MANUAL".
 - **reportPath**: The path to write the report file with all the results. Default to "xray.json".
 - **screenshotPath**: Where to find the screenshots, to add them as proofs in the report. Default to "cypress/screenshots".
-
 
 # Configuration with Cypress
 
 Once the reporter is installed, you have to configure it like any Mocha reporter for Cypress, in cypress.config.ts
 
-    "reporter": "mochaXrayReporter/reporters/reporter.js",
+    "reporter": "@enedis-oss/mocha-xray-reporter/reporters/reporter.js",
     "reporterOptions": {
       "jiraProjectId": "M2X",
       "ticketPrefix": "@TICKET-",
@@ -38,11 +38,9 @@ Once the reporter is installed, you have to configure it like any Mocha reporter
       "screenshotPath": "path/to/screenshots"
     }
 
-
 # Multiple reporter
 
-You may already have one or several reporters with mocha : spec, junit, etc.
-In this case, you'll have to use the multi-reporter library :
+You may already have one or several reporters with mocha : spec, junit, etc. In this case, you'll have to use the multi-reporter library :
 
     https://www.npmjs.com/package/mocha-multi-reporters
 
@@ -50,14 +48,14 @@ And if you use Cypress, the cypress multi-reporter library
 
     https://www.npmjs.com/package/cypress-multi-reporters
 
-The key to reference mocha-xray-reporter is  `MochaXrayReporterReportersReporterJsReporterOptions` // TBD
+The key to reference mocha-xray-reporter is `enedisOssMochaXrayReporterReportersReporterJsReporterOptions` // TBD
 
 Example:
 
     reporter: 'cypress-multi-reporters',
     reporterOptions: {
-      reporterEnabled: 'mocha-xray-reporter/reporters/reporter.js, spec',
-      MochaXrayReporterReportersReporterJsReporterOptions: {
+      reporterEnabled: '@enedis-oss/mocha-xray-reporter/reporters/reporter.js, spec',
+      enedisOssMochaXrayReporterReportersReporterJsReporterOptions: {
         jiraProjectId: 'M2X',
         ticketPrefix: '@TICKET-',
         stepPrefix: '@STEP-',
@@ -76,11 +74,10 @@ Once the reporter is configured, you only have to specify the ticket and the ste
             ...
           }
 
-
 The references (according to what you configured for the reporter):
 
 - '@TICKET-' (ticketPrefix) Will be used to extract the ticket number
-- '@STEP-'  (stepPrefix) Will be used to extract the step number
+- '@STEP-' (stepPrefix) Will be used to extract the step number
 
 The rules:
 
@@ -99,7 +96,7 @@ With these configurations and information in each test, here is how the reporter
   - If a test end up with errors --> Step status is "FAIL"
   - If a test is successful --> Step status is "PASS"
   - If a test is skipped --> Step status is "RENONCEMENT"
-  - If a test as the "@MANUAL" annotation and is successful --> Step status is "PENDING" 
+  - If a test as the "@MANUAL" annotation and is successful --> Step status is "PENDING"
 - Ticket and step number are sorter in number order
 - If a step is missing (like 1, 2, 4 but no 3), it will be completed with a "TODO" step
 - Ticket status is calculated according to its Steps status
@@ -113,7 +110,8 @@ With these configurations and information in each test, here is how the reporter
 
 # Results
 
-With the previously seen configuration ('M2X'), environment variable 'M2X_VERSION' containing 'DEVELOP' and the test with '@TICKET-1' and '@STEP-1', we get the following file content
+With the previously seen configuration ('M2X'), environment variable 'M2X_VERSION' containing 'DEVELOP' and the test with '@TICKET-1' and
+'@STEP-1', we get the following file content
 
     {
       "info": {
@@ -146,15 +144,17 @@ With the previously seen configuration ('M2X'), environment variable 'M2X_VERSIO
 
 If you want to upload the Xray file with your CI tool (Jenkins, Gitlab, Circle, Travis, etc.), you'll have 2 environment variables to use :
 
-- M2X_JIRA_TEST_EXEC_VERSION : if set, the 'summary' info in xray will be set to 'Automatic tests execution for version-M2X_JIRA_TEST_EXEC_VERSION'.
-- M2X_JIRA_TEST_EXEC_NUMBER : if set, the 'testExecutionKey' info in xray will be set to 'jiraProjectId-M2X_JIRA_TEST_EXEC_NUMBER'. It will the update the Test Exec references. Otherwise it will create a new ticket at the upload
+- M2X_JIRA_TEST_EXEC_VERSION : if set, the 'summary' info in xray will be set to 'Automatic tests execution for
+  version-M2X_JIRA_TEST_EXEC_VERSION'.
+- M2X_JIRA_TEST_EXEC_NUMBER : if set, the 'testExecutionKey' info in xray will be set to 'jiraProjectId-M2X_JIRA_TEST_EXEC_NUMBER'. It will
+  the update the Test Exec references. Otherwise it will create a new ticket at the upload
 
 # Upload into Jira
 
 ## Manual upload
 
-To upload manually tests results, you have to create a "Test Exec" ticket into Jira. 
-Then, in the Tests section, you'll have the possibility to choose "Import Execution Tests"
+To upload manually tests results, you have to create a "Test Exec" ticket into Jira. Then, in the Tests section, you'll have the possibility
+to choose "Import Execution Tests"
 
 ![add_execution_test_manually.png](add_execution_test_manually.png)
 
@@ -170,6 +170,6 @@ For Jenkins, you can easily use this plugin to upload the result into Jira
 
     https://github.com/jenkinsci/xray-connector-plugin
 
-Then you can use the plugin into your Jenkins Groovy file 
+Then you can use the plugin into your Jenkins Groovy file
 
     step([$class: 'XrayImportBuilder', endpointName: '', importFilePath: 'xray.json', importToSameExecution: 'true', projectKey: '##TRIGRAMME PROJECT##', serverInstance: '##ID INSTANCE JIRA SERVER##'])
