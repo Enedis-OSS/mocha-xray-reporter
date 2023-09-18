@@ -48,7 +48,7 @@ And if you use Cypress, the cypress multi-reporter library
 
     https://www.npmjs.com/package/cypress-multi-reporters
 
-The key to reference mocha-xray-reporter is `enedisOssMochaXrayReporterReportersReporterJsReporterOptions` // TBD
+The key to reference mocha-xray-reporter is `enedisOssMochaXrayReporterReportersReporterJsReporterOptions`
 
 Example:
 

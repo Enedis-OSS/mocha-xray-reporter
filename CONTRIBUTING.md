@@ -1,4 +1,12 @@
-# Development
+# Contributing
+
+## Who can contribute ?
+
+Everyone can contribute to this project. You'll have to use the fork method : 
+
+    https://docs.github.com/en/get-started/quickstart/contributing-to-projects#about-forking
+
+## How to launch the tests ?
 
 To help maintain and improve this reporter, you just have to be able to launch the tests locally.
 
@@ -14,7 +22,7 @@ This command will build the reporter, then launch the tests and then use the exp
 
 It's expected that some tests fail. The goal of these tests are to generate some good use cases to generate the xray.json
 
-## How to edit the tests
+## How to edit the tests ?
 
 To add/edit some tests, you'll have to edit the expected_xray.json file as well to match the expected behaviour. Some fields are not
 expected with their exact values for the following reasons :
@@ -38,3 +46,8 @@ We lean on prettier to format our code :
 The development workflow is set on rebase-merge method. A branch must be rebased on the last version of main branch to be merged.
 
 We use https://github.com/phips28/gh-action-bump-version to automatically version, package and publish each commit made on the main branch
+
+- If your commit messages contains "pre-rc", it will automatically bump the version in the [x].[y].[z]-rc[0-X] format
+- If your commit messages contains "feat" or "minor", it will automatically bump the version in the [x].[0-X].[z] format
+- If your commit messages contains "major", it will automatically bump the version in the [0-X].[y].[z] format
+- If none of the cases above, it will automatically bump the version in the [x].[y].[0-X] format
