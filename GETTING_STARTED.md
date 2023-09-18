@@ -2,11 +2,11 @@
 
 You just have to install it via npm or yarn (or your prefered package manager)
 
-    npm install mocha-xray-reporter
+    npm install @enedis-oss/mocha-xray-reporter
 
 or
 
-    yarn add mocha-xray-reporter
+    yarn add @enedis-oss/mocha-xray-reporter
 
 # Configuration with Mocha
 
