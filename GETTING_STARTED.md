@@ -156,7 +156,7 @@ If you want to upload the Xray file with your CI tool (Jenkins, Gitlab, Circle, 
 To upload manually tests results, you have to create a "Test Exec" ticket into Jira. Then, in the Tests section, you'll have the possibility
 to choose "Import Execution Tests"
 
-![add_execution_test_manually.png](add_execution_test_manually.png)
+![add_execution_test_manually.png](https://github.com/Enedis-OSS/mocha-xray-reporter/blob/main/add_execution_test_manually.png)
 
 Once it's done, you'll be able to see the results of the Test tickets in this Test Exec
 

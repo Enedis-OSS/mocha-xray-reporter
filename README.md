@@ -5,9 +5,9 @@ Generated Xray file can then be uploaded in Jira to create or update a Test Exec
 
 You will find generic information in this document. For more specific information, read the following ones:
 
-- [https://github.com/Enedis-OSS/mocha-xray-reporter/blob/main/GETTING_STARTED.md](GETTING_STARTED.md) : to be able to install and use this reporter
-- [https://github.com/Enedis-OSS/mocha-xray-reporter/blob/main/CONTRIBUTING.md](CONTRIBUTING.md) : if you want to contribute to this project
-- [https://github.com/Enedis-OSS/mocha-xray-reporter/blob/main/LICENSE](LICENSE) : to display the license we use
+- [GETTING_STARTED.md](https://github.com/Enedis-OSS/mocha-xray-reporter/blob/main/GETTING_STARTED.md) : to be able to install and use this reporter
+- [CONTRIBUTING.md](https://github.com/Enedis-OSS/mocha-xray-reporter/blob/main/CONTRIBUTING.md) : if you want to contribute to this project
+- [LICENSE](https://github.com/Enedis-OSS/mocha-xray-reporter/blob/main/LICENSE) : to display the license we use
 
 ## How does it work
 
