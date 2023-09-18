@@ -49,6 +49,8 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: cp package.json dist/
+      - run: cp *.md dist/
+      - run: cp add_execution_test_manually.png dist/
       - run: npm publish dist/ --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
