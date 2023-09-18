@@ -7,10 +7,7 @@ import { XrayTestModel } from '../model/xray-test.model';
 import { XrayEvidenceModel } from '../model/xray-evidence.model';
 import { XrayStepModel } from '../model/xray-step.model';
 import { JiraStatus } from '../model/jira-status.enum';
-import * as dotenv from 'dotenv';
 import { throughDir, writeSync } from '../utils/file-utils';
-
-dotenv.config({ path: '.env' });
 
 export class ReporterService {
   private readonly TEST_STATUS_FAILED = "failed"

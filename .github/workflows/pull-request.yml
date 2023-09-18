@@ -21,3 +21,9 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm test
+      - name: Archive tests results
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: tests-results-xray
+          path: xray-results/*.json

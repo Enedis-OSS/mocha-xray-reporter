@@ -14,13 +14,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "ut": "jest",
-    "pretest": "npm run mocha:run || true",
-    "test": "node assert-generated-xray.js",
-    "premocha:run": "npm run build",
-    "mocha:run": "mocha integration-test/*.spec.ts --reporter=dist/reporters/reporter.js --reporter-options jiraProjectId=M2X,reportPath=xray.json,ticketPrefix=@TICKET-,stepPrefix=@STEP-,screenshotDir=screenshots,manualId=@MANUAL",
-    "pretest:win": "npm run mocha:run || VER>NUL",
-    "test:win": "node assert-generated-xray.js"
+    "test": "jest --verbose --runInBand",
+    "pretest": "npm run build"
   },
   "keywords": [
     "mocha",
