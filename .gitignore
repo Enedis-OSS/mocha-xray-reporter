@@ -5,3 +5,4 @@ cypress/screenshots
 report.json
 
 xray.json
+xray-results/*.json
