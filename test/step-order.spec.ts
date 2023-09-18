@@ -11,7 +11,7 @@ beforeEach(() => {
 })
 
 describe("Order the steps in a good order", () => {
-    it("Should end up with PASS if all steps are PASS", async () => {
+    it("Should put the steps in the good order whatever the order the are coded in", async () => {
         const result = await launchMochaAndReturnResult(['test/resources/step-order.ts'], xrayFile)
         expect(result.tests[0].steps[0].actualResult).toContain("position 1")
         expect(result.tests[0].steps[1].actualResult).toContain("position 2")
