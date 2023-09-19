@@ -1,13 +1,9 @@
-import {launchMochaAndReturnResult} from "./resources/util";
+import { cleanTestArtifacts, launchMochaAndReturnResult } from './resources/util';
 import fs from "fs"
 
 const xrayFile = "xray-results/different-files.json"
 beforeEach(() => {
-    try {
-        fs.unlinkSync(xrayFile)
-    } catch(e) {
-
-    }
+    cleanTestArtifacts(xrayFile)
 })
 
 describe("Should handle tests in different files @TICKET and @STEP", () => {

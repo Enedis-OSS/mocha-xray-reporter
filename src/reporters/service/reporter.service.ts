@@ -107,10 +107,12 @@ export class ReporterService {
         hasTodoSteps = true;
       }
       // Find the screenshots for proofs
+      const ticketRegex = new RegExp(`${options.reporterOptions.ticketPrefix}${ticketNumber}[^0-9]`)
+      const stepRegex = new RegExp(`${options.reporterOptions.stepPrefix}${stepNumber}[^0-9]`)
       const evidences = screenshotFiles
         .filter(screenshotPath =>
-            screenshotPath.includes(`${options.reporterOptions.ticketPrefix}${ticketNumber}`)
-            && screenshotPath.includes(`${options.reporterOptions.stepPrefix}${stepNumber}`))
+            screenshotPath.match(ticketRegex) && screenshotPath.match(stepRegex)
+        )
         .filter(screenshotPath => {
           if (fs.existsSync(screenshotPath)) {
             return true;
