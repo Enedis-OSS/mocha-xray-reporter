@@ -6,3 +6,4 @@ report.json
 
 xray.json
 xray-results/*.json
+xray-results/*.png

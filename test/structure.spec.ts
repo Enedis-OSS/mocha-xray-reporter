@@ -1,13 +1,9 @@
-import {launchMochaAndReturnResult} from "./resources/util";
+import { cleanTestArtifacts, launchMochaAndReturnResult } from './resources/util';
 import fs from "fs"
 
 const xrayFile = "xray-results/structure.json"
 beforeEach(() => {
-    try {
-        fs.unlinkSync(xrayFile)
-    } catch(e) {
-
-    }
+    cleanTestArtifacts(xrayFile)
 })
 
 describe("Global structure of the generated json", () => {

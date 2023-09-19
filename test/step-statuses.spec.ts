@@ -1,13 +1,9 @@
-import {launchMochaAndReturnResult} from "./resources/util";
+import { cleanTestArtifacts, launchMochaAndReturnResult } from './resources/util';
 import fs from "fs"
 
 const xrayFile = "xray-results/step.json"
 beforeEach(() => {
-    try {
-        fs.unlinkSync(xrayFile)
-    } catch(e) {
-
-    }
+    cleanTestArtifacts(xrayFile)
 })
 
 describe("Resolve the step status according to the test status", () => {

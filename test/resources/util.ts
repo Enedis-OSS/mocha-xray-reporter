@@ -5,7 +5,7 @@ const mochaOptions = {
     jiraProjectId: 'M2X',
     ticketPrefix: '@TICKET-',
     stepPrefix: '@STEP-',
-    screenshotDir: 'screenshots',
+    screenshotDir: 'xray-results',
     manualId: '@MANUAL'
 }
 
@@ -21,4 +21,18 @@ export const launchMochaAndReturnResult = async (testFiles : Array<String>, xray
     })
     await promise
     return JSON.parse(fs.readFileSync(xrayFile, 'utf-8'))
+}
+
+export const cleanTestArtifacts = (xrayFile: string) => {
+    try {
+        fs.unlinkSync(xrayFile)
+        // Delete all previous screenshots files
+        const path = './xray-results/'
+        let regex = /[.]png$/
+        fs.readdirSync("xray-results/")
+          .filter(f => regex.test(f))
+          .map(f => fs.unlinkSync(path + f))
+    } catch(e) {
+
+    }
 }
