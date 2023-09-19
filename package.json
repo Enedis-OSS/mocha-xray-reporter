@@ -1,6 +1,6 @@
 {
   "name": "@enedis-oss/mocha-xray-reporter",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Reporter designed to create a xray report according to Jira references in mocha tests",
   "repository": {
     "type": "git",
