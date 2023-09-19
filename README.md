@@ -29,7 +29,7 @@ between tests made by developers and tests written by acceptance tests teams by 
 Whereas it can work only with Mocha and then allowing to generate report from Unit Tests, it has been made to work in acceptance tests
 level. Tests' results will have more impact if their scope is a functionality instead of a code function and if they carry proofs.
 
-## Philisophy
+## Philosophy
 
 Some projects allow to generate tests code directly from Xray tickets and steps through mechanisms like Cucumber/Gherkin. The main downsides
 are :
