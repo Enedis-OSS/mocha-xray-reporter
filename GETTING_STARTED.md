@@ -12,7 +12,7 @@ or
 
 If you launch your tests directly with Mocha, you can add these options to make the reporter work
 
-    mocha [folder of your tests]/*.spec.ts --reporter=@enedis-oss/mocha-xray-reporter/reporters/reporter.js --reporter-options jiraProjectId=M2X,reportPath=xray.json,ticketPrefix=@TICKET-,stepPrefix=@STEP-,screenshotDir=screenshots,manualId=@MANUAL
+    mocha [folder of your tests]/*.spec.ts --reporter=@enedis-oss/mocha-xray-reporter/reporter.js --reporter-options jiraProjectId=M2X,reportPath=xray.json,ticketPrefix=@TICKET-,stepPrefix=@STEP-,screenshotDir=screenshots,manualId=@MANUAL
 
 With the following variables :
 
@@ -22,20 +22,20 @@ With the following variables :
 - **manualId**: The keyword to use if you want your final status to be "IN PROGRESS" instead of "PASS" (see [Behaviour part](###
   Behaviour)). Default to "@MANUAL".
 - **reportPath**: The path to write the report file with all the results. Default to "xray.json".
-- **screenshotPath**: Where to find the screenshots, to add them as proofs in the report. Default to "cypress/screenshots".
+- **screenshotDir**: Where to find the screenshots, to add them as proofs in the report. Default to "cypress/screenshots".
 
 # Configuration with Cypress
 
 Once the reporter is installed, you have to configure it like any Mocha reporter for Cypress, in cypress.config.ts
 
-    "reporter": "@enedis-oss/mocha-xray-reporter/reporters/reporter.js",
+    "reporter": "@enedis-oss/mocha-xray-reporter/reporter.js",
     "reporterOptions": {
       "jiraProjectId": "M2X",
       "ticketPrefix": "@TICKET-",
       "stepPrefix": "@STEP-",
       "manualId": "@MANUAL",
       "reportPath": "xray.json",
-      "screenshotPath": "path/to/screenshots"
+      "screenshotDir": "path/to/screenshots"
     }
 
 # Multiple reporter
@@ -48,19 +48,19 @@ And if you use Cypress, the cypress multi-reporter library
 
     https://www.npmjs.com/package/cypress-multi-reporters
 
-The key to reference mocha-xray-reporter is `enedisOssMochaXrayReporterReportersReporterJsReporterOptions`
+The key to reference mocha-xray-reporter is `enedisOssMochaXrayReporterReporterJsReporterOptions`
 
 Example:
 
     reporter: 'cypress-multi-reporters',
     reporterOptions: {
-      reporterEnabled: '@enedis-oss/mocha-xray-reporter/reporters/reporter.js, spec',
-      enedisOssMochaXrayReporterReportersReporterJsReporterOptions: {
+      reporterEnabled: '@enedis-oss/mocha-xray-reporter/reporter.js, spec',
+      enedisOssMochaXrayReporterReporterJsReporterOptions: {
         jiraProjectId: 'M2X',
         ticketPrefix: '@TICKET-',
         stepPrefix: '@STEP-',
         reportPath: 'xray.json',
-        screenshotPath: 'cypress/screenshots'
+        screenshotDir 'cypress/screenshots'
       },
     },
 
@@ -110,7 +110,7 @@ With these configurations and information in each test, here is how the reporter
 
 # Results
 
-With the previously seen configuration ('M2X'), environment variable 'M2X_VERSION' containing 'DEVELOP' and the test with '@TICKET-1' and
+With the previously seen configuration ('M2X'), environment variable 'M2X_JIRA_TEST_EXEC_VERSION' containing 'DEVELOP' and the test with '@TICKET-1' and
 '@STEP-1', we get the following file content
 
     {
