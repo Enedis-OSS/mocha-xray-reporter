@@ -28,7 +28,7 @@ export const cleanTestArtifacts = (xrayFile: string) => {
         fs.unlinkSync(xrayFile)
         // Delete all previous screenshots files
         const path = './xray-results/'
-        let regex = /[.]png$/
+        let regex = /[.](png|json|txt)$/
         fs.readdirSync("xray-results/")
           .filter(f => regex.test(f))
           .map(f => fs.unlinkSync(path + f))

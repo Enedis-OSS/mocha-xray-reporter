@@ -8,6 +8,7 @@ import { XrayEvidenceModel } from '../model/xray-evidence.model';
 import { XrayStepModel } from '../model/xray-step.model';
 import { JiraStatus } from '../model/jira-status.enum';
 import { throughDir, writeSync } from '../utils/file-utils';
+import mime from 'mime';
 
 export class ReporterService {
   private readonly TEST_STATUS_FAILED = "failed"
@@ -127,7 +128,7 @@ export class ReporterService {
           return new XrayEvidenceModel({
             data: base64,
             filename: Path.basename(screenshotPath),
-            contentType: 'image/png',
+            contentType: mime.getType(screenshotPath),
           });
         });
       // Resolve the Step status
