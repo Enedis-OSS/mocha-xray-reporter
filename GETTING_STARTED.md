@@ -108,6 +108,11 @@ With these configurations and information in each test, here is how the reporter
 - If there is several tests with the same Ticket and Step reference, only the first will prevail
 - If a screenshot is found in the 'screenshotPath' path and contain Ticket and Step annotation, it will be added in the proofs list
 
+## Proofs
+
+The proofs mechanism is not only made for screenshots. If your tests generate other proofs like json, text fils or anything else, 
+as soon as there is the reference to the ticket and step, it will be gathered and put into the evidences part
+
 # Results
 
 With the previously seen configuration ('M2X'), environment variable 'M2X_JIRA_TEST_EXEC_VERSION' containing 'DEVELOP' and the test with '@TICKET-1' and
