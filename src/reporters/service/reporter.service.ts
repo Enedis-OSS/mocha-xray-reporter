@@ -11,9 +11,10 @@ import { throughDir, writeSync } from '../utils/file-utils';
 import mime from 'mime';
 
 export class ReporterService {
-  private readonly TEST_STATUS_FAILED = "failed"
-  private readonly TEST_STATUS_PENDING = "pending"
+  private readonly TEST_STATUS_FAILED = "failed";
+  private readonly TEST_STATUS_PENDING = "pending";
   private static instance: ReporterService;
+  private MAX_FILENAME_CHARACTERS = 235;
 
   private constructor() {}
 
@@ -125,9 +126,11 @@ export class ReporterService {
         .map(screenshotPath => {
           const bitmap = fs.readFileSync(screenshotPath);
           const base64 = Buffer.from(bitmap).toString('base64');
+          const file = Path.parse(screenshotPath);
+          const filename = `${file.name.substring(0, Math.min(this.MAX_FILENAME_CHARACTERS - file.ext.length, file.name.length))}${file.ext}`
           return new XrayEvidenceModel({
             data: base64,
-            filename: Path.basename(screenshotPath),
+            filename,
             contentType: mime.getType(screenshotPath),
           });
         });
