@@ -33,11 +33,11 @@ export class ReporterService {
   }
 
   static generateBaseJsonReport(options: { reporterOptions: XrayReporterOptions }) : Object {
+    const summary : string = process.env.M2X_JIRA_TEST_EXEC_SUMMARY || (process.env.M2X_JIRA_TEST_EXEC_VERSION ?
+      `Automatic tests execution for version {{version}}` : 'Automatic tests execution')
     return {
       info: {
-        summary: process.env.M2X_JIRA_TEST_EXEC_VERSION
-            ? `Automatic tests execution for version ${process.env.M2X_JIRA_TEST_EXEC_VERSION}`
-            : null,
+        summary: summary.replace('{{version}}', process.env.M2X_JIRA_TEST_EXEC_VERSION)
       },
       testExecutionKey: process.env.M2X_JIRA_TEST_EXEC_NUMBER
           ? `${options.reporterOptions.jiraProjectId}-${process.env.M2X_JIRA_TEST_EXEC_NUMBER}`
