@@ -149,10 +149,11 @@ With the previously seen configuration ('M2X'), environment variable 'M2X_JIRA_T
 
 If you want to upload the Xray file with your CI tool (Jenkins, Gitlab, Circle, Travis, etc.), you'll have 2 environment variables to use :
 
-- M2X_JIRA_TEST_EXEC_VERSION : if set, the 'summary' info in xray will be set to 'Automatic tests execution for
-  version-M2X_JIRA_TEST_EXEC_VERSION'.
-- M2X_JIRA_TEST_EXEC_NUMBER : if set, the 'testExecutionKey' info in xray will be set to 'jiraProjectId-M2X_JIRA_TEST_EXEC_NUMBER'. It will
-  the update the Test Exec references. Otherwise it will create a new ticket at the upload
+- M2X_JIRA_TEST_EXEC_VERSION : if set, the 'summary' info in xray will use this value.
+- M2X_JIRA_TEST_EXEC_NUMBER : if set, the 'testExecutionKey' info in xray will be set to 'jiraProjectId-M2X_JIRA_TEST_EXEC_NUMBER'. 
+  It will  update the Test Exec references. Otherwise, it will create a new ticket at the upload
+- M2X_JIRA_TEST_EXEC_SUMMARY : if set, the 'summary' info in xray will be set to this value. You can use {{version}} that will be replaced by M2X_JIRA_TEST_EXEC_VERSION.
+  The default value of summary is 'Automatic tests execution for version {{version}}'. If neither summary or version is set, the sentence will be 'Automatic tests execution'
 
 # Upload into Jira
 
