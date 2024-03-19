@@ -1,10 +1,18 @@
 # Security Policy
 
+if you believe you have found a security vulnerability in our repository, please report it to us as described below.
+
 ## Reporting a Vulnerability
 
-To report a vulnerability, send and email to the adress below
+To report a vulnerability, send and email to the adress below : [dsi-oscoe-enedis@enedis.fr](mailto:dsi-oscoe-enedis@enedis.fr)
 
-  dsi-oscoe-enedis@enedis.fr
+Please report security vulnerabilities by providing informations listed below :
+- Project Name (url to the project repository)
+- Id issue/Id pull request if a discussion is already existed about your vulnerability issue
+- Complete description of the security vulnerability you have found
+    - Type of issue (e.g buffer overflow, SQL injection...)
+    - Full path of source file(s) related to th eissue
+    - How to reproduce the issue
+    - Impact of the issue
 
-State the vulnerability you found, the version you found it in, the problem at stake, if it prevent you to use the projet anymore and if you already know a way to fix it.
-We'll come back to you as soon as possible by email 
+You will receive a response from our mainteners as soon as possible. Depending on complexity, we will release a patch if your report has been accepted or rejected.
