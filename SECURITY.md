@@ -4,7 +4,7 @@ if you believe you have found a security vulnerability in our repository, please
 
 ## Reporting a Vulnerability
 
-To report a vulnerability, send and email to the adress below : [dsi-oscoe-enedis@enedis.fr](mailto:dsi-oscoe-enedis@enedis.fr)
+To report a vulnerability, send and email to the adress below : dsi-oscoe-enedis [ @ ] enedis.fr
 
 Please report security vulnerability by providing informations listed below :
 - Project Name (url to the project repository)
