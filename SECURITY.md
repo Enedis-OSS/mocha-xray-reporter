@@ -1,18 +1,29 @@
-# Security Policy
+Thanks for helping make our project safe for everyone.
 
-if you believe you have found a security vulnerability in our repository, please report it to us as described below.
+## Security
 
-## Reporting a Vulnerability
+Enedis takes the security of its software products and services seriously, including all of the open source code repositories managed through its [GitHub organization](https://github.com/Enedis-OSS). 
+And we will ensure that your finding gets passed along to the appropriate maintainers for remediation.
 
-To report a vulnerability, send and email to the adress below : [dsi-oscoe-enedis@enedis.fr](mailto:dsi-oscoe-enedis@enedis.fr)
+## Reporting Security Issues
 
-Please report security vulnerabilities by providing information listed below :
-- Project Name (url to the project repository)
-- Id issue/Id pull request if a discussion is already existed about your vulnerability issue
-- Complete description of the security vulnerability you have found
-  - Type of issue (e.g buffer overflow, SQL injection...)
-  - Full path of source file(s) related to the issue
-  - How to reproduce the issue
-  - Impact of the issue
+If you believe you have found a security vulnerability in any Enedis-OSS repository, please report it to us through coordinated disclosure.
 
-You will receive a response from our maintainers as soon as possible. Depending on complexity, we will release a patch if your report has been accepted or rejected.
+**Please do not report security vulnerabilities through public GitHub issues, discussions, or pull requests.**
+
+Instead, please send an email to [dsi-oscoe-enedis@enedis.fr](mailto:dsi-oscoe-enedis@enedis.fr).
+
+Please include as much of the information listed below as you can to help us better understand and resolve the issue:
+
+* Project name [mocha-xray-reporter]
+  * In order to help us know the project since our email address is generic for all our projects
+* The type of issue (e.g., buffer overflow, SQL injection, or cross-site scripting)
+* Full paths of source file(s) related to the manifestation of the issue
+* The location of the affected source code (tag/branch/commit or direct URL)
+* Any special configuration required to reproduce the issue
+* Step-by-step instructions to reproduce the issue
+* Proof-of-concept or exploit code (if possible)
+* Impact of the issue, including how an attacker might exploit the issue
+
+This information will help us triage your report more quickly.
+
